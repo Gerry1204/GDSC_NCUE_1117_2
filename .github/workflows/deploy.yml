@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - feature/gemini-chatbot
 
 jobs:
   build-and-deploy:
