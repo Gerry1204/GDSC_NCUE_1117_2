@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             try {
                 genAI = new GoogleGenerativeAI(apiKey);
                 const model = genAI.getGenerativeModel({
-                    model: "gemini-1.5-flash-latest",
+                    model: "gemini-1.5-flash",
                     generationConfig: {
                         maxOutputTokens: 8000,
                         temperature: 1,
