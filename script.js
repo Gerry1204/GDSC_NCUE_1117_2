@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
             try {
                 genAI = new GoogleGenerativeAI(apiKey);
                 const model = genAI.getGenerativeModel({
-                    model: "gemini-2.0-flash-exp",
+                    model: "gemini-1.5-flash-latest",
                     generationConfig: {
                         maxOutputTokens: 8000,
                         temperature: 1,
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 // 重新初始化聊天以應用新人格
                 try {
                     const model = genAI.getGenerativeModel({
-                        model: "gemini-2.5-flash",
+                        model: "gemini-1.5-flash-latest",
                         generationConfig: {
                             maxOutputTokens: 8000,
                             temperature: 1,
