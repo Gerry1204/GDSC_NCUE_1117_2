@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const chatHistory = document.getElementById('chat-history');
     const chatInput = document.getElementById('chat-input');
     const sendBtn = document.getElementById('send-btn');
+    const typingIndicator = document.getElementById('typing-indicator');
 
     let genAI;
     let chat;
@@ -63,29 +64,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
         displayMessage(message, 'user-message');
         chatInput.value = '';
-
-        const loadingIndicator = displayMessage('...', 'ai-message', true);
+        chatHistory.appendChild(typingIndicator);
+        typingIndicator.classList.remove('hidden');
+        chatHistory.scrollTop = chatHistory.scrollHeight;
 
         try {
             const result = await chat.sendMessage(message);
             const response = await result.response;
             const text = response.text();
 
-            chatHistory.removeChild(loadingIndicator);
+            typingIndicator.classList.add('hidden');
             displayMessage(text, 'ai-message');
         } catch (error) {
             console.error('Error sending message:', error);
-            chatHistory.removeChild(loadingIndicator);
+            typingIndicator.classList.add('hidden');
             displayMessage('Sorry, something went wrong. Please check the console for details.', 'ai-message');
         }
     }
 
-    function displayMessage(message, className, isLoading = false) {
+    function displayMessage(message, className) {
         const messageDiv = document.createElement('div');
         messageDiv.classList.add('message', className);
-        if (isLoading) {
-            messageDiv.classList.add('loading');
-        }
         messageDiv.textContent = message;
         chatHistory.appendChild(messageDiv);
         chatHistory.scrollTop = chatHistory.scrollHeight;

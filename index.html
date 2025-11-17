@@ -26,11 +26,10 @@
     </div>
 
     <div id="chat-container" class="hidden">
-        <div id="chat-history"></div>
-        <div id="recommended-questions">
-            <button class="reco-btn">你好，請介紹一下自己</button>
-            <button class="reco-btn">用簡單的方式解釋什麼是 API</button>
-            <button class="reco-btn">給我三個學習 Github 的建議</button>
+        <div id="chat-history">
+            <div id="typing-indicator" class="hidden">
+                <span></span><span></span><span></span>
+            </div>
         </div>
         <div id="chat-input-container">
             <input type="text" id="chat-input" placeholder="Type your message...">
