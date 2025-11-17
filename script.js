@@ -28,12 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
         const apiKey = localStorage.getItem('gemini-api-key');
         if (apiKey) {
             try {
-                // 修正：使用正確的 SDK 類別名稱
-                if (typeof genai === 'undefined' && typeof google !== 'undefined' && google.generativeai) {
-                    window.genai = google.generativeai;
+                // 檢查 SDK 是否正確載入
+                if (typeof GoogleGenerativeAI === 'undefined') {
+                    throw new Error('Gemini SDK 未正確載入。請檢查網路連線並重新整理頁面。');
                 }
                 
-                genAI = new genai.GoogleGenerativeAI(apiKey);
+                genAI = new GoogleGenerativeAI(apiKey);
                 const model = genAI.getGenerativeModel({
                     model: "gemini-1.5-flash",
                     generationConfig: {
