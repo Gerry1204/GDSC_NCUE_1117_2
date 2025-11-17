@@ -32,9 +32,10 @@ document.addEventListener('DOMContentLoaded', () => {
             try {
                 genAI = new GoogleGenerativeAI(apiKey);
                 const model = genAI.getGenerativeModel({
-                    model: "gemini-2.5-flash",
+                    model: "gemini-2.0-flash-exp",
                     generationConfig: {
-                        temperature: 0.9,
+                        maxOutputTokens: 8000,
+                        temperature: 1,
                     }
                 });
                 
@@ -105,10 +106,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 // 重新初始化聊天以應用新人格
                 try {
                     const model = genAI.getGenerativeModel({
-                        model: "gemini-1.5-flash",
+                        model: "gemini-2.0-flash-exp",
                         generationConfig: {
-                            maxOutputTokens: 4000,
-                            temperature: 0.9,
+                            maxOutputTokens: 8000,
+                            temperature: 1,
                         }
                     });
                     
@@ -212,7 +213,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 errorMessage = `發生錯誤：${error.message}`;
             }
             
-            displayMessage(errorMessage, 'ai-message error-message');
+            displayMessage(errorMessage, 'ai-message', 'error-message');
         } finally {
             // 恢復輸入狀態
             isProcessing = false;
@@ -229,9 +230,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    function displayMessage(message, className) {
+    function displayMessage(message, ...classNames) {
         const messageDiv = document.createElement('div');
-        messageDiv.classList.add('message', className);
+        messageDiv.classList.add('message', ...classNames);
         messageDiv.textContent = message;
         chatHistory.appendChild(messageDiv);
         chatHistory.scrollTop = chatHistory.scrollHeight;
