@@ -9,4 +9,4 @@ This is a simple chatbot application that uses the Gemini API.
 
 ## Deployment
 
-This project is deployed on GitHub Pages.
+This project is automatically deployed to GitHub Pages using GitHub Actions.
