@@ -83,6 +83,31 @@ body {
     background-color: #357ABD;
 }
 
+/* Personality Container Styles */
+#personality-container {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    background-color: #2c2c2c;
+}
+
+.personality-btn {
+    padding: 10px 20px;
+    border: 1px solid #444;
+    border-radius: 20px;
+    background-color: transparent;
+    color: #e0e0e0;
+    cursor: pointer;
+    margin: 0 5px;
+    transition: all 0.3s ease;
+}
+
+.personality-btn.active, .personality-btn:hover {
+    background-color: #4A90E2;
+    color: #ffffff;
+    border-color: #4A90E2;
+}
+
 /* Chat Container Styles */
 #chat-container {
     display: flex;
@@ -143,6 +168,31 @@ body {
     color: #e0e0e0;
     align-self: flex-start;
     border-bottom-left-radius: 5px;
+    padding: 0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.ai-message .card-title {
+    font-weight: bold;
+    padding: 10px 15px;
+    background-color: #444;
+}
+
+.ai-message .card-summary {
+    font-style: italic;
+    padding: 10px 15px;
+    border-bottom: 1px solid #444;
+}
+
+.ai-message .card-content {
+    padding: 15px;
+}
+
+.ai-message .card-suggestions {
+    padding: 10px 15px;
+    border-top: 1px solid #444;
+    background-color: #3a3a3a;
 }
 
 /* Typing Indicator Styles */
@@ -176,6 +226,28 @@ body {
     } 40% {
         transform: scale(1.0);
     }
+}
+
+/* Recommended Questions Styles */
+#recommended-questions {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    gap: 10px;
+}
+
+.reco-btn {
+    padding: 10px 15px;
+    border: 1px solid #444;
+    border-radius: 20px;
+    background-color: #2c2c2c;
+    color: #e0e0e0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.reco-btn:hover {
+    background-color: #3c3c3c;
 }
 
 /* Chat Input Area Styles */
