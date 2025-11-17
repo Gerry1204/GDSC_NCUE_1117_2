@@ -1,3 +1,5 @@
+import { GoogleGenerativeAI } from "@google/generative-ai";
+
 document.addEventListener('DOMContentLoaded', () => {
     const apiKeyContainer = document.getElementById('api-key-container');
     const personalityContainer = document.getElementById('personality-container');
@@ -28,11 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const apiKey = localStorage.getItem('gemini-api-key');
         if (apiKey) {
             try {
-                // 檢查 SDK 是否正確載入
-                if (typeof GoogleGenerativeAI === 'undefined') {
-                    throw new Error('Gemini SDK 未正確載入。請檢查網路連線並重新整理頁面。');
-                }
-                
                 genAI = new GoogleGenerativeAI(apiKey);
                 const model = genAI.getGenerativeModel({
                     model: "gemini-1.5-flash",
